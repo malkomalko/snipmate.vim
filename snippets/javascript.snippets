@@ -1,0 +1,99 @@
+# mocha snippets
+snippet des
+	describe('${1}', function(){
+		${2}
+	})
+snippet itp
+	it('${1}')
+snippet it
+	it('${1}', function(){
+		${2}
+	})
+snippet ita
+	it('${1}', function(done){
+		${2}
+	})
+snippet bef
+	before(function(){
+		${2}
+	})
+snippet befa
+	before(function(done){
+		${2}
+	})
+snippet aft
+	after(function(){
+		${2}
+	})
+snippet afta
+	after(function(done){
+		${2}
+	})
+snippet befe
+	beforeEach(function(){
+		${2}
+	})
+snippet befea
+	beforeEach(function(done){
+		${2}
+	})
+snippet afte
+	afterEach(function(){
+		${2}
+	})
+snippet aftea
+	afterEach(function(done){
+		${2}
+	})
+# expect.js truthy matchers
+snippet ee ok: asserts that the value is truthy.
+	expect(${1}).to.be.ok();
+snippet ee be/equal: asserts === equality.
+	expect(${1}).to.be(${2});
+snippet ee eql: asserts loose equality that works with objects.
+	expect(${1}).to.eql(${2});
+snippet ee a/an: asserts typeof with support for array type and instanceof.
+	expect(${1}).to.be.a(${2});
+snippet ee throwException/throwError: asserts that the Function throws when called.
+	expect(${1}).to.throwError(${2:/matches the exception message/});
+snippet ees match: asserts regular expression match.
+	expect(${1}).to.match(/${2}/);
+snippet ees contain: asserts indexOf.
+	expect(${1}).to.contain("${2}");
+snippet eea contain: asserts indexOf.
+	expect(${1}).to.contain(${2});
+snippet eea length: asserts array .length.
+	expect(${1}).to.have.length(${2:0});
+snippet eea empty: asserts that an array is empty.
+	expect(${1}).to.be.empty();
+snippet eeo property: asserts presence of an own property (and value optionally).
+	expect(${1}).to.have.property('${2:property}');
+snippet eeo key: asserts the presence of a key.
+	expect(${1}).to.have.key('${2:key}');
+snippet eeo keys: asserts the presence of keys.
+	expect(${1}).to.have.keys(['${2:key}']);
+snippet eeo keys: asserts the presence of only these keys.
+	expect(${1}).to.only.have.keys(['${2:key}']);
+snippet een within: asserts a number within a range.
+	expect(${1}).to.be.within(${2:0, Infinity});
+snippet een greaterThan/above: asserts >.
+	expect(${1}).to.be.greaterThan(${2});
+snippet een lessThan/below: asserts <.
+	expect(${1}).to.be.lessThan(${2});
+# sinon-expect matchers
+snippet es Passes if spy was called at least once.
+	expect(${1}).was.called();
+snippet es Passes if spy was never called.
+	expect(${1}).was.notCalled();
+snippet es Passes if the spy was called exactly num times.
+	expect(${1}).was.callCount(${2:1});
+snippet es Passes if the provided spies where called in the specified order.
+	expect(${1}).was.callOrder(${2:spy});
+snippet es Passes if the spy was ever called with obj as its this value.
+	expect(${1}).was.calledOn(${2:obj});
+snippet es Passes if the spy was called with the provided arguments.
+	expect(${1}).was.calledWith(${2:args});
+snippet es Passes if the spy was called with the provided arguments and no others.
+	expect(${1}).was.calledWithExactly(${2:args});
+snippet es Passes if the spy threw the given exception. The exception can be a string denoting its type, or an actual object.
+	expect(${1}).was.threw(${2:exception});
