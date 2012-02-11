@@ -30,7 +30,6 @@ you type "for<tab>" in insert mode, it will expand a typical for loop in C: >
 
  }
 
-
 To go to the next item in the loop, simply <tab> over to it; if there is
 repeated code, such as the "i" variable in this example, you can simply
 start typing once it's highlighted and all the matches specified in the
@@ -44,15 +43,15 @@ after their trigger in 'snippets/<filetype>/<trigger>.snippet', or they can be
 defined together in a 'snippets/<filetype>.snippets' file. Note that dotted
 'filetype' syntax is supported -- e.g., you can use >
 
-	:set ft=html.eruby
+  :set ft=html.eruby
 
 to activate snippets for both HTML and eRuby for the current file.
 
 The syntax for snippets in *.snippets files is the following: >
 
  snippet trigger
- 	expanded text
-	more expanded text
+   expanded text
+   more expanded text
 
 Note that the first hard tab after the snippet trigger is required, and not
 expanded in the actual snippet. The syntax for *.snippet files is the same,
@@ -66,10 +65,10 @@ only be used outside of a snippet declaration. E.g.: >
 
  # this is a correct comment
  snippet trigger
- 	expanded text
+   expanded text
  snippet another_trigger
- 	# this isn't a comment!
-	expanded text
+   # this isn't a comment!
+   expanded text
 <
 This should hopefully be obvious with the included syntax highlighting.
 
@@ -82,9 +81,9 @@ stop. E.g., to place the cursor first on the id of a <div> tag, and then allow
 the user to press <tab> to go to the middle of it:
  >
  snippet div
- 	<div id="${1}">
-		${2}
-	</div>
+   <div id="${1}">
+     ${2}
+   </div>
 <
                         *snipMate-placeholders* *snipMate-${#:}* *snipMate-$#*
 Placeholders ~
@@ -94,9 +93,9 @@ the tab stop. This text then can be copied throughout the snippet using "$#",
 given # is the same number as used before. So, to make a C for loop: >
 
  snippet for
- 	for (${2:i}; $2 < ${1:count}; $1++) {
-		${4}
-	}
+   for (${2:i}; $2 < ${1:count}; $1++) {
+     ${4}
+   }
 
 This will cause "count" to first be selected and change if the user starts
 typing. When <tab> is pressed, the "i" in ${2}'s position will be selected;
@@ -107,7 +106,7 @@ NOTE: "$#" syntax is used only for variables, not for tab stops as in TextMate.
 Variables within variables are also possible. For instance: >
 
  snippet opt
- 	<option value="${1:option}">${2:$1}</option>
+   <option value="${1:option}">${2:$1}</option>
 
 Will, as usual, cause "option" to first be selected and update all the $1
 variables if the user starts typing. Since one of these variables is inside of
@@ -118,7 +117,7 @@ To copy a value throughout a snippet without supplying default text, simply
 use the "${#:}" construct without the text; e.g.: >
 
  snippet foo
- 	${1:}bar$1
+   ${1:}bar$1
 <                                                          *snipMate-commands*
 Interpolated Vim Script ~
 
@@ -127,7 +126,7 @@ when the snippet is inserted. Commands are given inside backticks (`...`); for
 TextMates's functionality, use the |system()| function. E.g.: >
 
  snippet date
- 	`system("date +%Y-%m-%d")`
+   `system("date +%Y-%m-%d")`
 
 will insert the current date, assuming you are on a Unix system. Note that you
 can also (and should) use |strftime()| for this example.
@@ -145,11 +144,11 @@ if you only want the filename to be returned, the first argument can be left
 blank. Examples: >
 
  snippet filename
- 	`Filename()`
+   `Filename()`
  snippet filename_with_default
- 	`Filename('', 'name')`
+   `Filename('', 'name')`
  snippet filename_foo
- 	`filename('$1_foo')`
+   `filename('$1_foo')`
 
 The first example returns the filename if it the file has been named, and an
 empty string if it hasn't. The second returns the filename if it's been named,
@@ -161,9 +160,9 @@ To specify that a snippet can have multiple matches in a *.snippets file, use
 this syntax: >
 
  snippet trigger A description of snippet #1
- 	expand this text
+   expand this text
  snippet trigger A description of snippet #2
- 	expand THIS text!
+   expand THIS text!
 
 In this example, when "trigger<tab>" is typed, a numbered menu containing all
 of the descriptions of the "trigger" will be shown; when the user presses the
@@ -226,7 +225,7 @@ to your name; it can then be used in snippets to automatically add it. E.g.: >
 
  let g:snips_author = 'Hubert Farnsworth'
  snippet name
- 	`g:snips_author`
+   `g:snips_author`
 <
                                      *snipMate-expandtab* *snipMate-indenting*
 If you would like your snippets to be expanded using spaces instead of tabs,
