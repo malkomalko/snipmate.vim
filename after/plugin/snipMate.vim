@@ -1,7 +1,7 @@
 " These are the mappings for snipMate.vim. Putting it here ensures that it
 " will be mapped after other plugins such as supertab.vim.
 if !exists('loaded_snips') || exists('s:did_snips_mappings')
-	finish
+  finish
 endif
 let s:did_snips_mappings = 1
 
@@ -31,7 +31,7 @@ snor <c-x> b<bs><c-x>
 
 " By default load snippets in snippets_dir
 if empty(snippets_dir)
-	finish
+  finish
 endif
 
 call GetSnippets(snippets_dir, '_') " Get global snippets
